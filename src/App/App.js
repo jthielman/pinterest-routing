@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <MyNavbar />
+          <MyNavbar authed={authed} />
           <Switch>
           <PrivateRoute path="/" exact component={Home} authed={authed} />
           <PrivateRoute path="/board/new" exact component={NewBoard} authed={authed} />
