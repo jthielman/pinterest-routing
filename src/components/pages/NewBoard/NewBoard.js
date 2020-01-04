@@ -6,7 +6,7 @@ class NewBoard extends React.Component {
   render() {
     return (
       <div className="NewBoard">
-        <h1>NewBoard Page</h1>
+        <h1>New Board Page</h1>
       </div>
     );
   }
