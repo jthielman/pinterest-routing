@@ -22,7 +22,7 @@ class SingleBoard extends React.Component {
     const { boardId } = this.props.match.params;
     boardData.getSingleBoard(boardId)
       .then((response) => {
-        this.setState({ board: response.data});
+        this.setState({ board: response.data });
         this.getPinData(boardId);
       })
       .catch((err) => console.error('error from get single board', err));
