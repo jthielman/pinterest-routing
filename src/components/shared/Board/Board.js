@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import boardShape from '../../../helpers/propz/boardShape';
 
@@ -13,19 +14,17 @@ class Board extends React.Component {
     const { board } = this.props;
 
     return (
-      <div className="Board">
-        <div className="col">
+      <div className="Board col-4">
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">{board.name}</h5>
               <p className="card-text">{board.description}</p>
               <form className="form-inline justify-content-between">
-                {/* <a href="#" className="btn btn-primary show-board" id="${board.id}">Show Board</a> */}
+                <Link className="btn btn-primary" to={`/board/${board.id}`}>Show Board</Link>
                 {/* <a href="#" className="btn btn-danger delete-board" id="delete-${board.id}">Delete Board</a> */}
               </form>
             </div>
           </div>
-        </div>
     </div>
     );
   }
