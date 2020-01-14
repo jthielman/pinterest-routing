@@ -11,6 +11,17 @@ class BoardForm extends React.Component {
     boardDescription: '',
   }
 
+  componentDidMount() {
+    const { boardId } = this.props.match.params;
+    if (boardId) {
+      boardData.getSingleBoard(boardId)
+        .then((response) => {
+          this.setState({ boardName: response.data.name, boardDescription: response.data.description });
+        })
+        .catch((err) => console.error('error from get single board', err));
+    }
+  }
+
   nameChange = (e) => {
     e.preventDefault();
     this.setState({ boardName: e.target.value });
@@ -59,7 +70,7 @@ class BoardForm extends React.Component {
             onChange={this.descriptionChange}
           />
         </div>
-        <button className='btn btn-outline-secondary' onClick={this.saveBoardEvent}>Save Board</button>
+        <button className='btn btn-outline-primary' onClick={this.saveBoardEvent}>Save Board</button>
       </form>
     );
   }
