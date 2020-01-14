@@ -1,8 +1,8 @@
 import React from 'react';
 
-import authData from '../../../helpers/data/authData';
-
 import './BoardForm.scss';
+
+import authData from '../../../helpers/data/authData';
 import boardData from '../../../helpers/data/boardData';
 
 class BoardForm extends React.Component {
@@ -27,7 +27,7 @@ class BoardForm extends React.Component {
       name: this.state.boardName,
       description: this.state.boardDescription,
       uid: authData.getUid(),
-    }
+    };
     boardData.saveBoard(newBoard)
       .then(() => this.props.history.push('/'))
       .catch((err) => console.error('error from save board', err));
