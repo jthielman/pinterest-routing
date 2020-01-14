@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pinData from '../../../helpers/data/pinData';
+// import pinData from '../../../helpers/data/pinData';
 import pinShape from '../../../helpers/propz/pinShape';
 
 class Pin extends React.Component {
