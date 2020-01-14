@@ -12,6 +12,18 @@ class PinForm extends React.Component {
     pinImageUrl: '',
   }
 
+  componentDidMount() {
+    const { pinId } = this.props.match.params;
+    if (pinId) {
+      pinData.getSinglePin(pinId)
+        .then((request) => {
+          const pin = request.data;
+          this.setState({ pinName: pin.name, pinDescription: pin.description, pinImageUrl: pin.imgUrl });
+        })
+        .catch((err) => console.error('error with get single pin', err));
+    }
+  }
+
   nameChange = (e) => {
     e.preventDefault();
     this.setState({ pinName: e.target.value });
@@ -25,6 +37,21 @@ class PinForm extends React.Component {
   imageChange = (e) => {
     e.preventDefault();
     this.setState({ pinImageUrl: e.target.value });
+  }
+
+  editPinEvent = (e) => {
+    e.preventDefault();
+    const { boardId, pinId } = this.props.match.params;
+    const editPin = {
+      boardId,
+      name: this.state.pinName,
+      description: this.state.pinDescription,
+      imgUrl: this.state.pinImageUrl,
+      uid: authData.getUid(),
+    };
+    pinData.editPin(pinId, editPin)
+      .then(() => this.props.history.push(`/board/${boardId}`))
+      .catch((err) => console.error('error from edit pin', err));
   }
 
   savePinEvent = (e) => {
@@ -44,6 +71,7 @@ class PinForm extends React.Component {
 
   render() {
     const { pinName, pinDescription, pinImageUrl } = this.state;
+    const { pinId } = this.props.match.params;
     return (
       <form className='PinForm container'>
         <div className='form-group'>
@@ -79,7 +107,10 @@ class PinForm extends React.Component {
             onChange={this.imageChange}
           />
         </div>
-        <button className='btn btn-outline-secondary' onClick={this.savePinEvent}>Save Pin</button>
+        { pinId
+          ? <button className='btn btn-outline-secondary' onClick={this.editPinEvent}>Edit Pin</button>
+          : <button className='btn btn-outline-secondary' onClick={this.savePinEvent}>Save Pin</button>
+        }
       </form>
     );
   }
