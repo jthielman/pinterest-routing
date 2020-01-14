@@ -1,17 +1,22 @@
 {
-    "board1": {
-      "name": "Cats",
-      "description": "Nothing but the greatest creatures on earth.",
-      "uid": "HcQAuWwYm6RcMbvhQrDtS77KNYr2"
-    },
-    "board2": {
-      "name": "Bears",
-      "description": "big and fluffy",
-      "uid": "HcQAuWwYm6RcMbvhQrDtS77KNYr2"
-    },
-    "board3": {
-      "name": "Trucks",
-      "description": "A board with lots of trucks",
-      "uid": "12345"
-    }
+  "board1": {
+    "name": "Coats",
+    "uid": "CiNhguOOrOf6prE7kuPAjga80Eo2",
+    "description": "Coats I like"
+  },
+  "board2": {
+    "name": "Hats",
+    "uid": "CiNhguOOrOf6prE7kuPAjga80Eo2",
+    "description": "Hats I like"
+  },
+  "board3": {
+    "name": "Vintage Fashion Plates",
+    "uid": "CiNhguOOrOf6prE7kuPAjga80Eo2",
+    "description": "Like it says on the tin"
+  },
+  "board4": {
+    "name": "Ak ana lukarnastaþin",
+    "uid": "1",
+    "description": "jah liuteiþ allaim þaim in þamma garda"
   }
+}
