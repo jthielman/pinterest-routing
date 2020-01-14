@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import pinData from '../../../helpers/data/pinData';
+
 import pinShape from '../../../helpers/propz/pinShape';
 
 class Pin extends React.Component {
@@ -22,9 +23,10 @@ class Pin extends React.Component {
         <div className="card">
           <img src={pin.imgUrl} className="card-img-top" alt={pin.title} />
           <div className="card-body">
-            <h5 className="card-title">{pin.title}</h5>
-            <p className="card-text">{pin.name}</p>
+            <h5 className="card-title">{pin.name}</h5>
+            <p className="card-text">{pin.description}</p>
             <button className='btn btn-danger' onClick={this.deletePinEvent}>x</button>
+            <Link className="btn btn-warning" to={`/board/${pin.boardId}/pin/${pin.id}/edit`}>Edit</Link>
           </div>
         </div>
       </div>
